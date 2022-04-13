@@ -11,7 +11,7 @@ import (
 	"net/http/httptest"
 	"net/url"
 
-	"github.com/pact-foundation/pact-workshop-go/model"
+	"github.com/sonzqn/pact-consumer-go/model"
 	"github.com/stretchr/testify/assert"
 )
 
