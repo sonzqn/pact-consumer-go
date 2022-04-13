@@ -14,7 +14,7 @@ pipeline {
   }
 
   environment {
-    SERVICE_NAME = "consumer-java"
+    SERVICE_NAME = "consumer-go"
     BRANCH_NAME = env.GIT_BRANCH.replace("origin/", "")
     //PACT_FOLDER = env.WORKSPACE for real jenkins (non docker)
     PENDING_PROVIDER_RUN_CONTRACT_JOB = "${PENDING_PROVIDER}-run-contract-tests"
