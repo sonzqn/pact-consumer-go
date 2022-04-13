@@ -35,6 +35,7 @@ pipeline {
     stage('Build & Test') {
       steps {
         sh 'go version'
+        sh 'go mod download github.com/google/uuid'
         sh 'make consumer'
       }
     }
