@@ -53,7 +53,7 @@ for provider_name in "${provider_names[@]}"
 do
   provider_job_status=$(curl "${jenkins_url}/job/${provider_name}-run-contract-tests")
   if [[ "$provider_job_status" == *"Error 404 Not Found"* ]]; then
-    echo "Provider job run contract tests not exists!"
+    echo "Job ${provider_name}-run-contract-tests not exists!"
   else
     webhook_status=$(curl "${PACT_BROKER_URL}/pacts/provider/${provider_name}/consumer/${consumer_name}/webhooks")
     #echo "${webhook_status}"
