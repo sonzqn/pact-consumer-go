@@ -4,8 +4,7 @@ pipeline {
   agent any
 
   tools {
-    jdk 'jdk 8'
-    maven 'mvn 3.8'
+    go 'go 1.18.1'
   }
 
   parameters {
@@ -24,7 +23,7 @@ pipeline {
     PACT_BROKER_URL = "http://localhost:9292"
     PACT_BROKER_USERNAME = "pb_username"
     PACT_BROKER_PASSWORD = "pb_password"
-    PACT_DOCKER_CLI = "sudo docker run -v ${PACT_FOLDER}/target/pacts:/pacts:ro \
+    PACT_DOCKER_CLI = "sudo docker run -v ${PACT_FOLDER}/pacts:/pacts:ro \
                            -e PACT_BROKER_BASE_URL='${PACT_BROKER_URL}' \
                            -e PACT_BROKER_USERNAME='${PACT_BROKER_USERNAME}' \
                            -e PACT_BROKER_PASSWORD='${PACT_BROKER_PASSWORD}' \
@@ -35,7 +34,7 @@ pipeline {
   stages {
     stage('Build & Test') {
       steps {
-        sh 'mvn clean verify'
+        sh 'make consumer'
       }
     }
     stage('[As Consumer] Publish Pact Contract') {
