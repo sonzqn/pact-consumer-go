@@ -16,9 +16,8 @@ pipeline {
   environment {
     SERVICE_NAME = "consumer-go"
     BRANCH_NAME = env.GIT_BRANCH.replace("origin/", "")
-    //PACT_FOLDER = env.WORKSPACE for real jenkins (non docker)
     PENDING_PROVIDER_RUN_CONTRACT_JOB = "${PENDING_PROVIDER}-run-contract-tests"
-
+    //PACT_FOLDER = env.WORKSPACE for real jenkins (non docker)
     PACT_FOLDER = env.WORKSPACE.replace("var", "/home/sonnd4/Documents/GitHub/infrastructure/jenkins")
     PACT_BROKER_URL = "http://localhost:9292"
     PACT_BROKER_USERNAME = "pb_username"
