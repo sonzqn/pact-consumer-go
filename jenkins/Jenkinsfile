@@ -34,6 +34,9 @@ pipeline {
   stages {
     stage('Build & Test') {
       steps {
+        withEnv(["GOROOT=${root}", "PATH+GO=${root}/bin"]) {
+          sh 'go version'
+        }
         sh 'make consumer'
       }
     }
